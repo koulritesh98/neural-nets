@@ -12,7 +12,7 @@ def initialize_parameters(layers):
     for i in range(len(layers)):
         if(i == len(layers)-1):
             break
-        params['Weights'+str(i+1)] = np.random.randn(layers[i+1],layers[i]) / np.sqrt(layers[i])  # xavier intialization
+        params['Weights'+str(i+1)] = np.random.randn(layers[i+1],layers[i]) / np.sqrt(layers[i]) 
         params['b'+str(i+1)] = np.zeros((layers[i+1],1))
     return params
 # sigmoid function
@@ -21,6 +21,7 @@ def sigmoid(x):
 # relu function
 def relu(x):
     return np.maximum(0,x)
+
 def drelu(dA,Z):
     dA[Z<=0] = 0
     return dA
